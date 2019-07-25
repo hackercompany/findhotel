@@ -20,6 +20,7 @@ services:
     volumes:
       - .:/usr/local/application/source/geolocation
     working_dir: /usr/local/application/source/geolocation
+    command: "go run cron"
     entrypoint:
       - "bash"
       - "/usr/local/application/source/geolocation/supervisor.sh"
