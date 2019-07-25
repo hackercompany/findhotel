@@ -1,0 +1,2 @@
+FROM mysql:5.6
+COPY ./dockerconfig/schema.sql /docker-entrypoint-initdb.d/schema.sql

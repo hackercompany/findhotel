@@ -1,0 +1,31 @@
+version: '3'
+services:
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile-MySQL
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: findhotel
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: docker
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    tty: true
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/local/application/source/geolocation
+    working_dir: /usr/local/application/source/geolocation
+    entrypoint:
+      - "bash"
+      - "/usr/local/application/source/geolocation/supervisor.sh"
+    container_name: geolocation
+    ports:
+      - "8080:8080"
+    tty: true
+    depends_on:
+      - db

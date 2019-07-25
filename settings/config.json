@@ -1,0 +1,24 @@
+{
+	"server": {
+		"port": "8080",
+    	"mode": "release",
+	    "url": "http://localhost",
+	    "API_TYPE": "prod"
+	},
+
+	"logger": {
+		"file_path": "/logs/geolocation.log"
+	},
+
+	"database": {
+		"host": "127.0.0.1",
+		"port": "3306",
+		"db": "findhotel",
+		"user": "docker",
+		"pass": "docker",
+		"max_connections": 100,
+		"max_idle": 10
+	},
+	"sample_data_file": "sample_data/data_dump.csv"
+	
+}
