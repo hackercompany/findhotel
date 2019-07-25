@@ -16,6 +16,7 @@ type Response struct {
 	Lat     string `json:"latitude,ommitempty"`
 	Long    string `json:"longitude,ommitempty"`
 	Ccode   string `json:"country_code,ommitempty"`
+	MVal    string `json:"mystery_value,ommitempty"`
 	Status  string `json:"status,ommitempty"`
 }
 
@@ -66,6 +67,7 @@ func IpInfo(c *gin.Context) {
 	resp.Lat = ipDAO.Lat
 	resp.Long = ipDAO.Long
 	resp.Ccode = ipDAO.Ccode
+	resp.MVal = ipDAO.MysteryValue
 	resp.Status = "success"
 	c.JSON(200, resp)
 	return
