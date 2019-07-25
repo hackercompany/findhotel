@@ -1,23 +1,23 @@
 package api
 
 import (
+	"database/sql"
+
 	"logger"
 	"model"
-
-	"database/sql"
 
 	"github.com/gin-gonic/gin"
 )
 
 type Response struct {
-	IP      string `json:"ip,ommitempty"`
-	City    string `json:"city,ommitempty"`
-	Country string `json:"country,ommitempty"`
-	Lat     string `json:"latitude,ommitempty"`
-	Long    string `json:"longitude,ommitempty"`
-	Ccode   string `json:"country_code,ommitempty"`
-	MVal    string `json:"mystery_value,ommitempty"`
-	Status  string `json:"status,ommitempty"`
+	IP      string `json:"ip,omitempty"`
+	City    string `json:"city,omitempty"`
+	Country string `json:"country,omitempty"`
+	Lat     string `json:"latitude,omitempty"`
+	Long    string `json:"longitude,omitempty"`
+	Ccode   string `json:"country_code,omitempty"`
+	MVal    string `json:"mystery_value,omitempty"`
+	Status  string `json:"status,omitempty"`
 }
 
 var log = logger.Log
