@@ -2,6 +2,7 @@ package main
 
 import (
 	"config"
+	"logger"
 	"middleware"
 	"model"
 
@@ -16,7 +17,7 @@ import (
 func main() {
 	config.DoInit()
 	logger.DoInit()
-	log := logger.log
+	log := logger.Log
 
 	dataFile, err := os.Open(config.Config.GetString("sample_data_file"))
 	if err != nil {
