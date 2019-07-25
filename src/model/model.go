@@ -32,7 +32,7 @@ func (g *Geolocation) Get() error {
 		g.Ccode = ccode
 		g.Country = country
 		g.City = city
-		g.MystyrValue = mystryValue
+		g.MysteryValue = mystryValue
 		g.Lat = fmt.Sprintf("%f", lat)
 		g.Long = fmt.Sprintf("%f", long)
 	}
