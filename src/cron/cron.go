@@ -70,9 +70,9 @@ func main() {
 			defer wg.Done()
 			err = geo.Insert()
 			if err != nil {
-				failedInserts += 1
+				*fail += 1
 			} else {
-				successInserts += 1
+				*suc += 1
 			}
 		}(&successInserts, &failedInserts)
 	}
