@@ -25,7 +25,7 @@ func DoInit() {
 	if DbConnErr != nil {
 		panic(DbConnErr)
 	}
-
+	// This helps the application at scale and avoids unnessary time outs
 	DBHandler.SetMaxOpenConns(config.Config.GetInt("database.max_connections"))
 	DBHandler.SetMaxIdleConns(config.Config.GetInt("database.max_idle"))
 

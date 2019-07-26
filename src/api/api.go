@@ -48,8 +48,8 @@ func IpInfo(c *gin.Context) {
 	ipAddress := c.Query("ip")
 
 	ipDAO := model.Geolocation{IP: ipAddress, Handler: c.MustGet("mysql").(*sql.DB)}
+	// Sanatising input param
 	if !ipDAO.ValidIp() {
-		// Sanatising input param
 		c.JSON(400, resp)
 		return
 	}

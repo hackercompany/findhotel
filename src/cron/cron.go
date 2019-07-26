@@ -15,6 +15,8 @@ import (
 )
 
 func main() {
+	// Binary to load data from a given dump path in the config file
+	// And push it to the database using model libraries Insert method
 	config.DoInit()
 	logger.DoInit()
 	log := logger.Log

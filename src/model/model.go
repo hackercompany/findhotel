@@ -10,6 +10,9 @@ import (
 
 var log = logger.Log
 
+// This is the main interface for data interation with the database
+// It exposes function to validate the data in objects
+// As well as holding a db handler for that specific transaction.
 type Geolocation struct {
 	IP, Ccode, Country, City, Lat, Long, MysteryValue string
 	Handler                                           *sql.DB
@@ -33,6 +36,8 @@ func (g *Geolocation) Get() error {
 		g.Country = country
 		g.City = city
 		g.MysteryValue = mystryValue
+		// This is done as in memory objects all work on strings
+		// For db storage optimisation specific datatypes have been defined
 		g.Lat = fmt.Sprintf("%f", lat)
 		g.Long = fmt.Sprintf("%f", long)
 	}
