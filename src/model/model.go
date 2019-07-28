@@ -21,6 +21,7 @@ type Geolocation struct {
 func (g *Geolocation) Get() error {
 	rows, err := g.Handler.Query(GET_IP_DATA, g.IP)
 	if err != nil {
+		log.Errorln("Geolocation GET", "Mysql Error", err.Error())
 		return err
 	}
 	defer rows.Close()
@@ -52,6 +53,18 @@ func (g *Geolocation) Insert() error {
 		return err
 	}
 	defer insert.Close()
+
+	return nil
+}
+
+func (g *Geolocation) Delete() error {
+	del, err := g.Handler.Query(DELETE_IP_DATA, g.IP)
+
+	if err != nil {
+		log.Errorln("Geolocation DELETE", "Mysql Error", err.Error())
+		return err
+	}
+	defer del.Close()
 
 	return nil
 }

@@ -1,0 +1,13 @@
+*.sublime-*
+bin/*
+pkg/*
+*.pyc
+*.log
+santa.iml
+.idea/*
+*/.git/*
+*.csv
+SANTA_LOG
+vendor/bin/*
+vendor/pkg/*
+.DS_Store
