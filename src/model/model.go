@@ -4,6 +4,7 @@ import (
 	"logger"
 
 	"database/sql"
+	"errors"
 	"fmt"
 	"regexp"
 )
@@ -26,6 +27,7 @@ func (g *Geolocation) Get() error {
 	}
 	defer rows.Close()
 
+	err = errors.New("Data Not Found")
 	for rows.Next() {
 		var ccode, country, city, mystryValue string
 		var lat, long float64
@@ -41,8 +43,10 @@ func (g *Geolocation) Get() error {
 		// For db storage optimisation specific datatypes have been defined
 		g.Lat = fmt.Sprintf("%f", lat)
 		g.Long = fmt.Sprintf("%f", long)
+
+		err = nil
 	}
-	return nil
+	return err
 }
 
 func (g *Geolocation) Insert() error {
